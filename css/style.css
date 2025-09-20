@@ -44,7 +44,7 @@ nav > .wrapper {
 .menu > ul {
   list-style-type: none;
   display: flex;
-  gap: 30px; /* jarak antar menu */
+  gap: 70px; /* jarak antar menu */
   margin: 0;
   padding: 0;
 }
@@ -55,8 +55,8 @@ nav > .wrapper {
   font-weight: 600;
 }
 
-.menu > ul > li > a.active {
-  border-bottom: 2px solid #000; /* underline untuk aktif menu */
+.menu ul li a:hover {
+  text-decoration: underline;
 }
 
 /* Logo */
@@ -107,6 +107,7 @@ header {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
 .header-jumbotron > h4 {
@@ -114,6 +115,7 @@ header {
     font-size: 64px;
     margin: 0px 275px 0px 1px;
     padding: 0px;
+    font-weight: 500;
 }
 .header-jumbotron > h5 {
     color: #F7F7F7;
@@ -134,104 +136,63 @@ header {
     padding: 0;
 }
 
-a {
-    text-decoration: none;
-    color: #FFF;
-    text-shadow: none;
-}
-
-.button {
-    background-color: #161728;
-    padding: 5px 10px 5px 10px;
-    border-radius: 5px;
-    font-family: "Kanit", sans-serif;
-}
-
-.button-xl {
-    font-size: 1.4rem;
-    padding: 20px;
-    box-shadow: 0 0 10px #161728;
-}
-
 
 /*
-* statistic
+* about
 */
-.split {
+.about {
   display: flex;
-  height: 55vh;
+  height: 70vh;
+  background: #F7F7F7;
 }
 
-/* ===== Kiri ===== */
-.split .left {
+/* Kiri */
+.about .left {
   flex: 3;
-  background: #F7F7F7;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* penting buat posisi circle */
 }
 
-.split .left > img {
+.about .left > img {
   object-fit: contain;
-  width: 346px;
-  height: 346px;
-  z-index: 1;
-  margin-left: 60px; /* geser kanan */
+  width: 300px;
+  height: auto;
 }
 
-/* ===== Kanan ===== */
-.split .right {
+/* Kanan */
+.about .right {
+  margin: auto;
   flex: 7;
-  background: #F7F7F7;
-  position: relative; /* penting buat posisi circle */
-}
-
-/* ===== Section Statistic ===== */
-#statistic {
-  background-color: #F7F7F7;
-  color: #000;
+  padding: 40px;
   font-family: "Poppins", sans-serif;
-  text-align: left;
+  color: #000;
 }
 
-#statistic > .wrapper {
-  padding: 50px;
-  width: 90%;
-}
-
-#statistic > .wrapper > div {
-  text-align: left;
-}
-
-#statistic > .wrapper > div > p {
+.about .right p {
   font-size: 48px;
+  font-weight: 700;
   margin: 0;
-  padding: 0;
-  font-weight: 700; /* bold judul */
 }
 
-#statistic > .wrapper > div > small {
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
+.about .right small {
+  font-size: 32px;
   font-style: italic;
   display: block;
+  margin-top: 5px;
 }
 
-#statistic > .wrapper > div > i {
-  font-size: 18px;
-  color: #000; /* abu-abu biar lebih soft */
-  margin-top: 10px;
+.about .right i {
+  font-size: 24px;
   display: block;
+  margin-top: 15px;
+  color: #444;
 }
 
-/* ===== Buttons ===== */
-#statistic > .wrapper > .buttons {
+.buttons {
   margin-top: 20px;
   display: flex;
   gap: 15px;
-  justify-content: flex-start;
 }
 
 .btn {
@@ -241,7 +202,6 @@ a {
   background-color: #C93684;
   padding: 10px 25px;
   border-radius: 6px;
-  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   transition: 0.3s;
@@ -251,26 +211,6 @@ a {
   background-color: #a52c6a;
 }
 
-/* ===== Circle Dekorasi ===== */
-.circle {
-  position: absolute;
-  z-index: 0;
-}
-
-/* Circle oren kiri bawah */
-.circle-left {
-  bottom: -1px;
-  left: -160px;
-  width: 1px;   /* kecil banget */
-}
-
-/* Circle biru kanan atas */
-.circle-right {
-  top: -2px;
-  right: -20px;
-  width: 100px;   /* biar seimbang */
-}
-
 
 /* 
 * portfolio preview
@@ -278,16 +218,18 @@ a {
 #portfolio-preview {
   background: linear-gradient(0deg, #E684D1 0%, #F7F7F7 50%);
   padding: 60px 0;
+  min-height: 70vh;
+  font-family: "Poppins", sans-serif;
 }
 
 
 #portfolio-preview > .wrapper > h4 {
     text-align: center;
-    font-family: "Poppins", sans-serif;
     color: #000;
     font-size: 64px;
     margin: 0px;
     padding: 0px;
+    text-decoration: underline;
 }
 
 .grid {
@@ -313,6 +255,10 @@ a {
     transition: transform 0.3s ease;
 }
 
+.grid > .item > img:hover {
+    transform: scale(1.05);
+}
+
 #portfolio-preview > .wrapper > .button-portofolio {
     text-align: center;
     margin-top: 40px;
@@ -321,7 +267,7 @@ a {
 #portfolio-preview > .wrapper > .button-portofolio > .btn-portofolio {
   text-decoration: none;
   color: #000;
-  background-color: #F4A261;
+  background-color: #FFBF7E;
   padding: 10px 20px;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -330,6 +276,11 @@ a {
   transition: all 0.3s ease;
   text-align: center;
 }
+
+#portfolio-preview > .wrapper > .button-portofolio > .btn-portofolio:hover {
+  background-color: #E07B39;     
+}
+
 
 /*
 *Why Choose Us 
@@ -363,7 +314,6 @@ a {
   padding: 0 20px;
 }
 
-/* Judul */
 #why-choose-us h4 {
   font-size: 64px;
   font-weight: 700;
@@ -390,10 +340,12 @@ a {
 .benefits {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  flex: 1;
+  gap: 20px;                /* jarak antar box */
+  max-width: 600px;         /* batasi lebar keseluruhan grid */
+  margin: 0 auto;           /* biar tetap di tengah */
   text-align: center;
 }
+
 
 .benefits > .box {
   background: #fff;
@@ -410,23 +362,25 @@ a {
 
 .benefits > h5 {
   margin-bottom: 0px;
-  font-size: 22px;
+  font-size: 26px;
   color: #000;
 }
 
 .benefits > .box > h5 > i {
   color: #5A33BE;
   margin-right: 8px;
+  font-size: 24px;
+  vertical-align: middle;
 }
 
 
 /*
 *team introduction
 */
-
 #team-introduction {
-    background: #F7F7F7;
+    background: url('../images/background-introduction.png') center center / cover no-repeat;
     padding: auto;
+    min-height: 70vh;
 }
 
 #team-introduction > .wrapper > h4 {
@@ -436,6 +390,7 @@ a {
     font-size: 64px;
     margin: 0px;
     padding: 40px;
+    text-decoration: underline;
 }
 
 .team-members {
@@ -480,33 +435,45 @@ footer {
   flex-wrap: wrap;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
+.footer-left {
   flex: 1;
   min-width: 200px;
-}
-
-.footer-left {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .footer-left h3 {
   margin: 0;
   font-size: 40px;
   display: flex;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.footer-left h3 .footer-logo {
+  margin-right: 20px; 
+  width: 70px;
+  height: auto;
 }
 
 .footer-left p {
   font-size: 24px;
   margin: 0;
-  color: #ddd;
+  color: #F7F7F7;
+  font-style: italic;
+}
+
+.footer-center {
+  flex: 1;
+  min-width: 200px;
+  margin-left: 100px;
 }
 
 .footer-center h4 {
-  margin-bottom: 32px;
+  margin-bottom: 5px;
+  font-size: 32px;
+  margin-top: 5px;
 }
 
 .footer-center ul {
@@ -529,9 +496,20 @@ footer {
   text-decoration: underline;
 }
 
+.footer-right {
+  flex: 1;
+  min-width: 200px;
+  text-align: right;
+}
+
 .footer-right p {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: 24px;
+}
+
+.footer-right p small {
+  font-size: 20px;
+  color: #ccc;
 }
 
 .social-icons {
@@ -540,7 +518,7 @@ footer {
 
 .social-icons a {
   margin-right: 10px;
-  color: #fff;
+  color: #FFF;
   font-size: 18px;
   text-decoration: none;
 }
