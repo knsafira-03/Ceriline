@@ -17,16 +17,21 @@
             <div class="logo">
                <img src="images/logo_ceriline.png" alt="Logo">
             </div>
-
+            
             <!-- Menu -->
             <div class="menu">
                <ul>
-               <li><a href="#about">Home</a></li>
-               <li><a href="#portfolio-preview">Portfolio</a></li>
-               <li><a href="#">Pricing</a></li>
-               <li><a href="#">Contact</a></li>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#portfolio-preview">Portfolio</a></li>
+                  <li><a href="#">Pricing</a></li>
+                  <li><a href="#">Contact</a></li>
                </ul>
             </div>
+
+            <button class="hamburger-menu">
+               <i class="fa-solid fa-bars icon-bar"></i>
+               <i class="fa-solid fa-xmark icon-close"></i>
+            </button>
 
             <!-- Icon user -->
             <div class="user-icon">
@@ -40,7 +45,7 @@
     <!-- hero/jumbotron -->
      <header>
         <div class="header-opacity"></div>
-        <div class="header-jumbotron">
+        <div id="home" class="home">
             <h4>Welcome to</h4>
             <h5>Ceriline Page</h5>
             <p><img src="images/Ellipse-5.png" alt=""></p>
@@ -145,38 +150,38 @@
 
          <!-- footer -->
    <footer>
-   <div class="footer-wrapper">
-      <!-- Kiri -->
-      <div class="footer-left">
-         <h3><img src="images/logo-footer.png" alt="Ceriline Logo" class="footer-logo"> Ceriline</h3>
-         <p>Fresh colors, as sweet as cherries.</p>
-      </div>
-
-      <!-- Tengah -->
-      <div class="footer-center">
-         <h4>Navigation</h4>
-         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Contact</a></li>
-         </ul>
-      </div>
-
-      <!-- Kanan -->
-      <div class="footer-right">
-         <p>cerilineart@gmail.com</p>
-         <p>+62 812 3456 7890</p>
-         <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <div class="footer-wrapper">
+         <!-- Kiri -->
+         <div class="footer-left">
+            <h3><img src="images/logo-footer.png" alt="Ceriline Logo" class="footer-logo"> Ceriline</h3>
+            <p>Fresh colors, as sweet as cherries.</p>
          </div>
-         <p><small>© 2025 Ceriline. All rights reserved.</small></p>
-      </div>
-   </div>
 
+         <!-- Tengah -->
+         <div class="footer-center">
+            <h4>Navigation</h4>
+            <ul>
+               <li><a href="#home">Home</a></li>
+               <li><a href="#portfolio-preview">Portfolio</a></li>
+               <li><a href="#">Pricing</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </div>
+
+         <!-- Kanan -->
+         <div class="footer-right">
+            <p>cerilineart@gmail.com</p>
+            <p>+62 812 3456 7890</p>
+            <div class="social-icons">
+               <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+               <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p><small>© 2025 Ceriline. All rights reserved.</small></p>
+         </div>
+      </div>
    </footer>
 
+   <script src="js/main.js"></script>
 
 </body>
 </html>

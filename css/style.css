@@ -96,7 +96,7 @@ header {
     left: 0px;
 }
 
-.header-jumbotron {
+.home {
     position: relative;
     top: 0px;
     left: 0px;
@@ -110,14 +110,15 @@ header {
     font-family: "Poppins", sans-serif;
 }
 
-.header-jumbotron > h4 {
+.home > h4 {
     color: #F7F7F7;
     font-size: 64px;
     margin: 0px 275px 0px 1px;
     padding: 0px;
     font-weight: 500;
+    z-index: 1;
 }
-.header-jumbotron > h5 {
+.home > h5 {
     color: #F7F7F7;
     font-size: 96px;
     margin: 0px;
@@ -126,7 +127,7 @@ header {
     z-index: 1;
 }
 
-.header-jumbotron > p {
+.home > p {
     position: relative;
     top: 0%;    /* geser vertikal */
     left: 30%;   /* geser horizontal */
@@ -529,4 +530,235 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.2);
   font-size: 12px;
   color: #ccc;
+}
+
+/*
+*Hamburger Menu (untuk mobile)
+*/
+button.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+button.hamburger-menu i {
+  color: #000;
+}
+
+button.hamburger-menu i.icon-close {
+  display: none;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .tampil {
+    display: inline;
+  }
+
+  .tampil ul{
+    flex-direction: column;
+    background-color: #F7F7F7;
+    width: 100%;
+    position: fixed;
+    top: 77px;
+    left: 0;
+  }
+
+  .tampil ul li {
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .home > h4 {
+    font-size: 32px;
+    margin: 0px 20px 0px 1px;
+  }
+
+  .home > h5 {
+    font-size: 48px;
+    line-height: 3rem;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+
+  .about .left, .about .right {
+    flex: none;
+    width: 100%;
+  }
+
+  .about .left {
+    margin-bottom: 20px;
+  }
+
+  #why-choose-us > .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #why-choose-us h4::before {
+    width: 150px;
+    height: 150px;
+    left: calc(50% - 75px);
+    top: -20px;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-center {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .footer-right {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  button.hamburger-menu {
+    display: inline;
+    position: center;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .menu > ul {
+    gap: 30px; /* jarak menu lebih kecil */
+  }
+
+  .about {
+    flex-direction: column;
+    height: auto; /* biar nggak maksa tinggi */
+    text-align: center;
+  }
+
+  .about .left img {
+    width: 200px; /* lebih kecil biar muat */
+    margin-bottom: 20px;
+  }
+
+  .about .right {
+    padding: 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* portfolio 2 kolom */
+  }
+
+  #why-choose-us > .wrapper {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr; /* box jadi 1 kolom */
+  }
+
+  .team-members {
+    grid-template-columns: repeat(2, 1fr); /* tim 2 kolom */
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-center {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .footer-right {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+/* HP */
+@media (max-width: 576px) {
+  .menu {
+    display: none;
+  }
+
+  .tampil {
+    display: inline;
+  }
+
+  .tampil ul{
+    flex-direction: column;
+    background-color: #F7F7F7;
+    width: 100%;
+    position: fixed;
+    top: 77px;
+    left: 0;
+  }
+
+  .tampil ul li {
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .home > h4 {
+    font-size: 32px;
+    margin: 0;
+  }
+
+  .home > h5 {
+    font-size: 48px;
+    line-height: 2.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* portfolio 1 kolom */
+  }
+
+  .team-members {
+    grid-template-columns: 1fr; /* tim 1 kolom */
+  }
+
+  .about .right p {
+    font-size: 32px;
+  }
+
+  .about .right small {
+    font-size: 20px;
+  }
+
+  .about .right i {
+    font-size: 16px;
+  }
+
+  .footer-left h3 {
+    font-size: 28px;
+  }
+
+  .footer-left p,
+  .footer-center ul li a,
+  .footer-right p {
+    font-size: 16px;
+  }
+
+  button.hamburger-menu {
+    display: inline;
+    position: center;
+  }
 }
