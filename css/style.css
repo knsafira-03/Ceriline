@@ -760,3 +760,185 @@ button.hamburger-menu i.icon-close {
     position: center;
   }
 }
+
+/*
+* Pricing Page
+*/
+
+/*
+Header / Jumbotron Halaman Pricing (Versi Baru)
+*/
+.pricing-header-bg {
+    font-family: "Poppins", sans-serif;
+    background-image: url('../images/bg-header-pricing.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Styling untuk judul "Pricing Plans" */
+.pricing-header-bg h1 {
+    font-size: 50px;
+    font-weight: 800;
+    color: #38109F;
+    border-color: #FFF;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+    letter-spacing: normal;
+}
+
+/* Styling untuk sub-judul "Choose the style..." */
+.pricing-header-bg p {
+    font-size: 25px;
+    font-weight: 500;
+    font-style: italic;
+    color: #5A33BE;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0px 10px;
+    border-radius: 0px;
+    margin-top: 15px;
+    letter-spacing: normal;
+}
+
+.paintbrush-icon {
+    font-size: 90px;
+    color: #4B279A;
+}
+
+/*
+Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
+*/
+
+#pricing-cards {
+    padding: 60px 20px;
+    font-family: "Poppins", sans-serif;
+    background: url("../images/bg-pricing-card.png");
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling untuk satu kartu */
+.pricing-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    border-color: #C93684;
+}
+
+.pricing-card img {
+    width: 100%;
+    height: 80%;
+    position: center;
+    object-fit: cover;
+}
+
+/* Wrapper untuk semua konten di bawah gambar */
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Container untuk Judul dan Harga */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+
+.pricing-card h3 {
+    font-size: 28px;
+    margin: 0;
+    color: #000;
+    font-weight: 800;
+}
+
+.pricing-card .price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #000;
+    margin: 0;
+}
+
+.pricing-card .description {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0 20px 0;
+}
+
+.btn-order {
+    display: block;
+    background-color: #C93684;
+    color: #fff;
+    padding: 12px 0px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-order:hover {
+    background-color: #a52c6a;
+}
+
+/* Penyesuaian Responsive agar tidak berantakan di layar kecil */
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-header-bg h1 {
+        font-size: 48px;
+    }
+
+    .pricing-header-bg p {
+        font-size: 20px;
+    }
+}
