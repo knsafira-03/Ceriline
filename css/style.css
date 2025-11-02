@@ -773,8 +773,8 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
     background-image: url('../images/bg-header-pricing.jpg'); 
     background-size: cover;
     background-position: center;
-    height: 40vh;
-    
+    height: 51vh;
+    opacity: 0.7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -788,10 +788,10 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
 
 /* Styling untuk judul "Pricing Plans" */
 .pricing-header-bg h1 {
-    font-size: 50px;
+    font-size: 96px;
     font-weight: 800;
     color: #38109F;
-    border-color: #FFF;
+    -webkit-text-stroke: 5px #FFF;
     margin: 0;
     line-height: 1.2;
     text-align: left;
@@ -800,7 +800,7 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
 
 /* Styling untuk sub-judul "Choose the style..." */
 .pricing-header-bg p {
-    font-size: 25px;
+    font-size: 48px;
     font-weight: 500;
     font-style: italic;
     color: #5A33BE;
@@ -851,7 +851,7 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
 .pricing-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    border-color: #C93684;
+    border-color: #5A33BE;
 }
 
 .pricing-card img {
@@ -894,7 +894,7 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
 
 .pricing-card .description {
     font-size: 16px;
-    color: #555;
+    color: #000;
     margin: 10px 0 20px 0;
 }
 
