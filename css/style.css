@@ -809,11 +809,13 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
     border-radius: 0px;
     margin-top: 15px;
     letter-spacing: normal;
+    z-index: 0;
 }
 
-.paintbrush-icon {
-    font-size: 90px;
-    color: #4B279A;
+.paintbrush {
+    width: 200px;
+    height: 300px;
+    z-index: 1;
 }
 
 /*
@@ -824,6 +826,7 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
     padding: 60px 20px;
     font-family: "Poppins", sans-serif;
     background: url("../images/bg-pricing-card.png");
+    /* height: 87vh; */
 }
 
 .pricing-grid {
