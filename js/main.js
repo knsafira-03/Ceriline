@@ -3,8 +3,17 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
 const iconBars = document.querySelectorAll('.icon-bar');
 const iconClose = document.querySelectorAll('.icon-close');
 
-hamburgerMenu.addEventListener('click', displayMenu);
-menu.addEventListener('click', displayMenu);
+// --- INI PERBAIKANNYA ---
+// Kita cek dulu apakah menu hamburger-nya ada di halaman ini
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', displayMenu);
+    
+    // Pastikan menu juga ada sebelum menambahkan listener
+    if (menu) {
+        menu.addEventListener('click', displayMenu);
+    }
+}
+// --- AKHIR PERBAIKAN ---
 
 function displayMenu() {
     if (menu.classList.contains('tampil')) {
@@ -23,6 +32,7 @@ function displayMenu() {
 * Custom Select Dropdown (Versi Multi)
 * =================================
 */
+// Kode ini sudah benar dan akan berjalan setelah perbaikan di atas
 document.addEventListener("DOMContentLoaded", function() {
     
     // 1. Cari SEMUA dropdown di halaman
