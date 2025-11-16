@@ -1204,7 +1204,7 @@ main.portfolio-page-content::before,
 
 /* Form Section */
 .contact-form-section {
-  background-image: url('../images/contact/background_contact.jpg');
+  background: #F7F7F7;
   padding: 60px 20px;
   font-family: "Poppins", sans-serif;
 }
@@ -1364,4 +1364,215 @@ main.portfolio-page-content::before,
   .contact-form-container form {
     padding: 20px;
   }
+}
+
+
+
+
+/*
+* =================================
+* Login & Sign Up Pages (BARU)
+* =================================
+*/
+
+/* Body untuk halaman auth */
+.auth-body {
+    background-color: #fff; /* Background putih keabu-abuan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.auth-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header (Logo) */
+.auth-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.auth-logo {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-decoration: none;
+    color: #C93684;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.auth-logo img {
+    height: 50px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* Card Utama Login/Signup */
+.auth-card {
+    background-color: #fff;
+    padding: 60px 50px;
+    border-radius: 20px;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
+}
+
+.auth-card h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.auth-card p {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 40px;
+}
+
+/* Form Group */
+.auth-form-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.auth-form-group label {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.auth-form-group input[type="email"],
+.auth-form-group input[type="password"],
+.auth-form-group input[type="text"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #C93684; /* Border pink */
+    border-radius: 12px;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
+    outline: none; /* Hapus outline biru saat fokus */
+    transition: border-color 0.2s ease;
+}
+
+.auth-form-group input:focus {
+    border-color: #5A33BE; /* Border ungu saat fokus */
+}
+
+/* Password Input dengan Ikon Mata */
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input-wrapper input {
+    padding-right: 50px; /* Beri ruang untuk ikon mata */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000;
+    font-size: 20px;
+    transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #C93684;
+}
+
+/* Tombol Login/Sign Up */
+.auth-btn {
+    width: 100%;
+    padding: 18px 20px;
+    background-color: #C93684;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 28px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.auth-btn:hover {
+    background-color: #a52c6a;
+    transform: translateY(-2px);
+}
+
+/* Link di Footer Card */
+.auth-footer-links {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #000;
+}
+
+.auth-footer-links a {
+    color: #5A33BE; /* Warna ungu untuk link */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.auth-footer-links a:hover {
+    color: #8a6be6;
+    text-decoration: underline;
+}
+
+.auth-footer-links p {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #666;
+}
+
+/* Copyright di paling bawah */
+.auth-copyright {
+    margin-top: 40px;
+    font-size: 16px;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-card {
+        padding: 40px 25px;
+    }
+    .auth-card h1 {
+        font-size: 38px;
+    }
+    .auth-card p {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .auth-form-group label {
+        font-size: 20px;
+    }
+    .auth-form-group input {
+        font-size: 20px;
+        padding: 12px 15px;
+    }
+    .auth-btn {
+        font-size: 24px;
+        padding: 15px;
+    }
+    .auth-footer-links, .auth-footer-links p {
+        font-size: 18px;
+    }
+    .toggle-password {
+        font-size: 18px;
+        right: 15px;
+    }
 }

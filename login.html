@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ceriline</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <a href="index.html" class="auth-logo">
+                <img src="images/logo_ceriline.png" alt="Ceriline Logo"> Ceriline
+            </a>
+        </div>
+        <div class="auth-card">
+            <h1>Login</h1>
+            <p>Welcome back!</p>
+
+            <form action="#" method="POST">
+                <div class="auth-form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="auth-form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" required>
+                        <i class="fa-solid fa-eye-slash toggle-password"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+
+            <div class="auth-footer-links">
+                <a href="#">Forgot your password?</a>
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+        <p class="auth-copyright">&copy; 2025 Ceriline. All rights reserved.</p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/toggle-password.js"></script> </body>
+</html>
