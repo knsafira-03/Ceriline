@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commission Form - Ceriline</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="auth-body">
+    <main class="order-content">
+        <h1>Commission Form</h1>
+        <p>Tell me what you'd like me to draw!</p>
+        
+        <form class="commission-form" action="#" method="POST">
+            
+            <div class="order-form-row">
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="order-form-row">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="order-form-row">
+                <label for="instagram">Instagram</label>
+                <input type="text" id="instagram" name="instagram">
+            </div>
+
+            <div class="order-form-row">
+                <label>Style*</label>
+                <div class="btn-toggle-group">
+                    <input type="radio" id="style-sketch" name="style" value="sketch" checked>
+                    <label for="style-sketch">Sketch</label>
+                    <input type="radio" id="style-colored" name="style" value="colored">
+                    <label for="style-colored">Colored</label>
+                    <input type="radio" id="style-fullrender" name="style" value="fullrender">
+                    <label for="style-fullrender">Full Render</label>
+                </div>
+            </div>
+
+            <div class="order-form-row">
+                <label for="art-type">Art Type*</label>
+                <div class="custom-select-wrapper">
+                    <select id="art-type" name="art-type">
+                        <option value="" disabled selected hidden>&nbsp;</option> <option value="headshot">Headshot</option>
+                        <option value="half-body">Half Body</option>
+                        <option value="3q-body">3/4 Body</option>
+                        <option value="full-body">Full Body</option>
+                    </select>
+                    <div class="custom-select-trigger placeholder">
+                        <span>&nbsp;</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="headshot">Headshot</div>
+                        <div class="custom-option" data-value="half-body">Half Body</div>
+                        <div class="custom-option" data-value="3q-body">3/4 Body</div>
+                        <div class="custom-option" data-value="full-body">Full Body</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-form-row">
+                <label for="reference">Reference Link</label>
+                <input type="text" id="reference" name="reference">
+            </div>
+            
+            <div class="order-form-row">
+                <label>Upload Image</label>
+                <label for="upload-image" class="btn-upload">Upload</label>
+                <input type="file" id="upload-image" name="upload-image" accept="image/*" multiple>
+            </div>
+
+            <div class="order-form-row-full">
+                <label for="description">Character Description*</label>
+                <textarea id="description" name="description" rows="5" placeholder="Tell me about your character, pose, mood, background, etc." required></textarea>
+            </div>
+            
+            <div class="order-form-row">
+                <label>Background*</label>
+                <div class="btn-toggle-group">
+                    <input type="radio" id="bg-none" name="background" value="none" checked>
+                    <label for="bg-none">None</label>
+                    <input type="radio" id="bg-simple" name="background" value="simple">
+                    <label for="bg-simple">Simple</label>
+                    <input type="radio" id="bg-detailed" name="background" value="detailed">
+                    <label for="bg-detailed">Detailed</label>
+                </div>
+            </div>
+            
+            <div class="order-form-row">
+                <label for="commercial-use">Commercial Use*</label>
+                <div class="custom-select-wrapper">
+                    <select id="commercial-use" name="commercial-use">
+                        <option value="" disabled selected hidden>&nbsp;</option> <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <div class="custom-select-trigger placeholder">
+                        <span>&nbsp;</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="yes">Yes</div>
+                        <div class="custom-option" data-value="no">No</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-form-row-full">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" rows="3"></textarea>
+            </div>
+
+            <div class="estimated-price">
+                Estimated Price : $XX
+            </div>
+
+            <div class="order-submit-area">
+                <button type="submit" class="btn-purple">Submit Order</button>
+                <p class="form-reply-note">I'll reply via email or Instagram within 1-2 days 🍒</p>
+                <p><small><br><br>© 2025 Ceriline. All rights reserved.</small></p>
+            </div>
+
+        </form>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

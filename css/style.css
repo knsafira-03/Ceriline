@@ -1576,3 +1576,208 @@ main.portfolio-page-content::before,
         right: 15px;
     }
 }
+
+
+
+
+/*
+* =================================
+* Order Form Page (BARU)
+* =================================
+*/
+
+/* Kita pakai ulang .auth-body dan .simple-header dari login.css */
+
+.order-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.order-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+    color: #000;
+}
+
+.order-content > p {
+    font-size: 24px;
+    color: #666;
+    margin: 10px 0 40px 0;
+    letter-spacing: normal;
+}
+
+.commission-form {
+    width: 100%;
+    max-width: 800px; /* Form ini lebih lebar dari login */
+    display: grid;
+    /* Lebar label | 1fr untuk sisa ruang */
+    grid-template-columns: 200px 1fr;
+    gap: 20px 25px; /* Jarak baris | Jarak kolom */
+    text-align: left;
+}
+
+.order-form-row {
+    display: contents; /* Agar menyatu dengan grid induk */
+}
+
+/* Label standar */
+.order-form-row > label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    align-self: center; /* Rata tengah vertikal */
+}
+
+/* Input standar */
+.order-form-row input[type="text"],
+.order-form-row input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #C93684;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.order-form-row input:focus {
+    border-color: #5A33BE;
+}
+
+/* Tombol Toggle (Style & Background) */
+.btn-toggle-group {
+    display: flex;
+    gap: 10px;
+}
+.btn-toggle-group input[type="radio"] {
+    display: none; /* Sembunyikan radio button asli */
+}
+.btn-toggle-group label {
+    padding: 10px 20px;
+    border: 2px solid #C93684;
+    border-radius: 8px;
+    color: #C93684;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+/* Style saat di-hover */
+.btn-toggle-group label:hover {
+    background-color: #fdf0f8;
+}
+/* Style saat DIPILIH (checked) */
+.btn-toggle-group input[type="radio"]:checked + label {
+    background-color: #C93684;
+    color: #fff;
+}
+
+/* Tombol Upload */
+.btn-upload {
+    background-color: #C93684;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+}
+.btn-upload:hover {
+    background-color: #a52c6a;
+}
+input[type="file"] {
+    display: none; /* Sembunyikan input file asli */
+}
+
+/* Baris Full-Width (Textarea) */
+.order-form-row-full {
+    /* Paksa agar span 2 kolom */
+    grid-column: 1 / -1; 
+}
+.order-form-row-full label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+.order-form-row-full textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #C93684;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+}
+.order-form-row-full textarea:focus {
+    border-color: #5A33BE;
+}
+
+/* Dropdown Custom (kita pakai style yg sudah ada) */
+/* Pastikan style .custom-select-wrapper sudah ada */
+
+/* Harga & Tombol Submit */
+.estimated-price {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 20px;
+}
+.order-submit-area {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Tombol Ungu BARU */
+.btn-purple {
+    padding: 15px 60px;
+    background-color: #5A33BE; /* Warna Ungu */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-purple:hover {
+    background-color: #4a2a9c;
+}
+
+.form-reply-note {
+    font-style: italic;
+    color: #666;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Responsive untuk Order Form */
+@media (max-width: 768px) {
+    .commission-form {
+        /* Ubah jadi 1 kolom di HP */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .order-form-row > label {
+        text-align: left; /* Label rata kiri di HP */
+    }
+    .btn-toggle-group {
+        flex-wrap: wrap; /* Biar tombolnya bisa ke bawah kalo ga muat */
+    }
+}
