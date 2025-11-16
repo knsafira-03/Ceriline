@@ -947,3 +947,166 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
         font-size: 20px;
     }
 }
+
+
+
+/*
+* =================================
+* Portfolio Page (Versi Perbaikan Final)
+* =================================
+*/
+
+.portfolio-header-bg {
+    font-family: "Poppins", sans-serif;
+    background-image: url('../images/portofolio_sketch/bg_portofolio.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    color: #fff;
+    position: relative;
+}
+.portfolio-header-content {
+    position: relative;
+    z-index: 1;
+}
+.portfolio-header-content h1 {
+    text-align: left;
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: -450px;
+    text-shadow: #000 2px 2px 4px;
+}
+.portfolio-header-content p {
+    text-align: left;
+    color: #5A33BE;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 5px;
+    margin-top: 0px;
+    margin-left: -450px;
+    background-color: #F7F7F7CC;
+    margin-bottom: 3px;
+    letter-spacing: normal;
+}
+.portfolio-header-content small {
+    text-align: left;
+    color: #5A33BE;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 5px;
+    margin-left: -450px;
+    background-color: #F7F7F7CC;
+    letter-spacing: normal;
+}
+
+.portfolio-main-area {
+    background-image: url('../images/portofolio_sketch/bg_portofolio.jpg');
+    
+    background-size: 130%;
+    background-position: center;
+    
+    position: relative;
+    z-index: 0;
+}
+
+.portfolio-main-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 232, 232, 0.85); 
+    z-index: -1; 
+}
+
+main.portfolio-page-content {
+    padding: 40px 0;
+    font-family: "Poppins", sans-serif;
+    background: none; 
+}
+
+#portfolio-cta {
+    padding: 40px 0 60px 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    background: none; 
+}
+
+main.portfolio-page-content::before, 
+#portfolio-cta::before {
+    content: none;
+}
+
+/* Tombol Filter */
+.portfolio-filters {
+    text-align: left;
+    margin-bottom: 60px;
+    margin-left: 64px;
+}
+.btn-filter {
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 25px;
+    border-radius: 10px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    border: 2px solid #C93684;
+    background: #fff;
+    color: #C93684;
+}
+.btn-filter.active {
+    background: #C93684;
+    color: #fff;
+}
+.btn-filter:hover {
+    background: #f4f0ff;
+}
+.btn-filter.active:hover {
+    background: #C93684;
+}
+
+/* Grid Portfolio */
+.portfolio-grid .item {
+    background: #fff;
+    border: 5px solid #FFF;
+    transition: all 0.3s ease;
+    width: 300px;
+    height: auto;
+}
+.portfolio-grid .item:hover {
+    border-color: #5A33BE;
+    transform: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.portfolio-grid .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Teks CTA */
+#portfolio-cta h2 {
+    font-size: 32px;
+    color: #000;
+    padding: auto;
+    margin: 0px 350px 20px 350px;
+    font-weight: 400;
+    border-radius: 50px;
+    background-color: #FFF;
+    box-shadow: 0 0 15px 10px #FFF;
+}
+#portfolio-cta .btn {
+    font-size: 18px;
+    padding: 12px 30px;
+    border: 5px solid #FFF;
+}
