@@ -774,7 +774,7 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
     background-size: cover;
     background-position: center;
     height: 51vh;
-    opacity: 0.7;
+    /* opacity: 0.7; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -784,6 +784,7 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
     display: flex;
     align-items: center;
     gap: 30px;
+    /* opacity: 0.7; */
 }
 
 /* Styling untuk judul "Pricing Plans" */
@@ -791,7 +792,7 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
     font-size: 96px;
     font-weight: 800;
     color: #38109F;
-    -webkit-text-stroke: 5px #FFF;
+    -webkit-text-stroke: 3px #FFF;
     margin: 0;
     line-height: 1.2;
     text-align: left;
@@ -803,9 +804,10 @@ Header / Jumbotron Halaman Pricing (Versi Baru)
     font-size: 48px;
     font-weight: 500;
     font-style: italic;
+    text-align: left;
     color: #5A33BE;
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 0px 10px;
+    padding: 0px 100px 0px 10px;
     border-radius: 0px;
     margin-top: 15px;
     letter-spacing: normal;
