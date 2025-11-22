@@ -7,7 +7,7 @@ const BASE_BACKEND_URL = 'https://ceriline-auth-123.vercel.app';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // LOGIKA UNTUK REGISTRASI (SIGNUP) - Menggunakan /api/register
+    // LOGIKA UNTUK REGISTRASI (SIGNUP)
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', async (event) => {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Data yang dikirim ke backend
             const payload = {
-                username: name, // MAPPING: 'name' frontend ke 'username' backend
+                username: name,
                 email: email,
                 password: password,
                 confirm_password: confirmPassword
@@ -38,11 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const data = await response.json();
 
-                if (response.ok) { // Jika status 201
+                if (response.ok) { 
                     alert('Registrasi Berhasil: ' + data.message);
-                    window.location.href = 'login.html'; // Arahkan ke halaman login
+                    window.location.href = 'login.html';
                 } else {
-                    // Jika gagal (misalnya 400 Bad Request)
                     alert('Registrasi Gagal: ' + data.error);
                 }
             } catch (error) {
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // LOGIKA UNTUK LOGIN - Menggunakan /api/login
+    // LOGIKA UNTUK LOGIN
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Data yang dikirim ke backend
             const payload = {
-                identifier: email, // MAPPING: 'email' frontend ke 'identifier' backend
+                identifier: email,
                 password: password
             };
 
@@ -75,18 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    // PENTING: untuk mengirim dan menerima cookie sesi
                     credentials: 'include', 
                     body: JSON.stringify(payload)
                 });
 
                 const data = await response.json();
                 
-                if (response.ok) { // Jika status 200
+                if (response.ok) { 
                     alert('Login Berhasil: ' + data.message);
-                    window.location.href = 'index.html'; // Arahkan ke halaman utama
+                    window.location.href = 'index.html'; 
                 } else {
-                    // Jika gagal (misalnya 401 Unauthorized)
                     alert('Login Gagal: ' + data.error);
                 }
             } catch (error) {
@@ -96,14 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ... (lanjutan kode di atas)
-
-    // LOGIKA UNTUK LOGOUT - Menggunakan /api/logout (Anda bisa memanggil fungsi ini saat tombol Logout di klik)
+    // LOGIKA UNTUK LOGOUT (Pastikan ini ada di dalam document.addEventListener)
     window.handleLogout = async () => {
         const backendUrl = `${BASE_BACKEND_URL}/api/logout`;
         
         try {
-            // Permintaan logout juga harus menyertakan kredensial (cookie)
             const response = await fetch(backendUrl, {
                 method: 'POST',
                 headers: {
@@ -114,9 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            if (response.ok) { // Jika status 200 OK
+            if (response.ok) { 
                 alert('Anda telah berhasil Logout.');
-                window.location.href = 'index.html'; // Arahkan kembali ke halaman utama atau login
+                window.location.href = 'index.html'; 
             } else {
                 alert('Logout Gagal: ' + (data.error || 'Terjadi kesalahan saat logout.'));
             }
@@ -126,4 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-});
+}); // Tutup document.addEventListener('DOMContentLoaded')
