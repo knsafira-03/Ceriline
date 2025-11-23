@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
+/******************
+INDEX.HTML
+*******************/
+
 html, body {
     margin: 0xp;
     padding: 0px;
@@ -761,12 +766,12 @@ button.hamburger-menu i.icon-close {
   }
 }
 
-/*
+/***********************
 * Pricing Page
-*/
+************************/
 
 /*
-Header / Jumbotron Halaman Pricing (Versi Baru)
+Header
 */
 .pricing-header-bg {
     font-family: "Poppins", sans-serif;
@@ -950,12 +955,9 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
 
 
 
-/*
-* =================================
-* Portfolio Page (Versi Perbaikan Final)
-* =================================
-*/
-
+/***********************
+* Portfolio Page
+***********************/
 .portfolio-header-bg {
     font-family: "Poppins", sans-serif;
     background-image: url('../images/portofolio_sketch/bg_portofolio.jpg');
@@ -1111,11 +1113,9 @@ main.portfolio-page-content::before,
 
 
 
-/*
-* =================================
-* Contact Page (BARU)
-* =================================
-*/
+/****************************
+* Contact Page
+****************************/
 
 /* Header Contact */
 .contact-header-bg {
@@ -1278,9 +1278,7 @@ main.portfolio-page-content::before,
 }
 
 /*
-* =================================
-* Custom Select Dropdown (BARU)
-* =================================
+* Custom Select Dropdown
 */
 
 .custom-select-wrapper {
@@ -1369,15 +1367,12 @@ main.portfolio-page-content::before,
 
 
 
-/*
-* =================================
-* Login & Sign Up Pages (BARU)
-* =================================
-*/
+/*************************************
+* Login & Sign Up Pages
+**************************************/
 
-/* Body untuk halaman auth */
 .auth-body {
-    background-color: #fff; /* Background putih keabu-abuan */
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1466,7 +1461,7 @@ main.portfolio-page-content::before,
 }
 
 .auth-form-group input:focus {
-    border-color: #5A33BE; /* Border ungu saat fokus */
+    border-color: #5A33BE;
 }
 
 /* Password Input dengan Ikon Mata */
@@ -1513,7 +1508,6 @@ main.portfolio-page-content::before,
     transform: translateY(-2px);
 }
 
-/* Link di Footer Card */
 .auth-footer-links {
     margin-top: 30px;
     font-size: 20px;
@@ -1521,7 +1515,7 @@ main.portfolio-page-content::before,
 }
 
 .auth-footer-links a {
-    color: #5A33BE; /* Warna ungu untuk link */
+    color: #5A33BE;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
@@ -1538,7 +1532,6 @@ main.portfolio-page-content::before,
     color: #666;
 }
 
-/* Copyright di paling bawah */
 .auth-copyright {
     margin-top: 40px;
     font-size: 16px;
@@ -1580,14 +1573,9 @@ main.portfolio-page-content::before,
 
 
 
-/*
-* =================================
-* Order Form Page (BARU)
-* =================================
-*/
-
-/* Kita pakai ulang .auth-body dan .simple-header dari login.css */
-
+/********************************
+* Order Form Page
+********************************/
 .order-content {
     flex: 1;
     display: flex;
@@ -1614,16 +1602,15 @@ main.portfolio-page-content::before,
 
 .commission-form {
     width: 100%;
-    max-width: 800px; /* Form ini lebih lebar dari login */
+    max-width: 800px;
     display: grid;
-    /* Lebar label | 1fr untuk sisa ruang */
     grid-template-columns: 200px 1fr;
-    gap: 20px 25px; /* Jarak baris | Jarak kolom */
+    gap: 20px 25px;
     text-align: left;
 }
 
 .order-form-row {
-    display: contents; /* Agar menyatu dengan grid induk */
+    display: contents;
 }
 
 /* Label standar */
@@ -1631,7 +1618,7 @@ main.portfolio-page-content::before,
     font-size: 20px;
     font-weight: 600;
     color: #333;
-    align-self: center; /* Rata tengah vertikal */
+    align-self: center;
 }
 
 /* Input standar */
@@ -1669,17 +1656,16 @@ main.portfolio-page-content::before,
     cursor: pointer;
     transition: all 0.2s ease;
 }
-/* Style saat di-hover */
+
 .btn-toggle-group label:hover {
     background-color: #fdf0f8;
 }
-/* Style saat DIPILIH (checked) */
+
 .btn-toggle-group input[type="radio"]:checked + label {
     background-color: #C93684;
     color: #fff;
 }
 
-/* Tombol Upload */
 .btn-upload {
     background-color: #C93684;
     color: #fff;
@@ -1695,12 +1681,10 @@ main.portfolio-page-content::before,
     background-color: #a52c6a;
 }
 input[type="file"] {
-    display: none; /* Sembunyikan input file asli */
+    display: none;
 }
 
-/* Baris Full-Width (Textarea) */
 .order-form-row-full {
-    /* Paksa agar span 2 kolom */
     grid-column: 1 / -1; 
 }
 .order-form-row-full label {
@@ -1726,10 +1710,6 @@ input[type="file"] {
     border-color: #5A33BE;
 }
 
-/* Dropdown Custom (kita pakai style yg sudah ada) */
-/* Pastikan style .custom-select-wrapper sudah ada */
-
-/* Harga & Tombol Submit */
 .estimated-price {
     grid-column: 1 / -1;
     text-align: center;
