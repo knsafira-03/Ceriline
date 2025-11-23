@@ -1590,7 +1590,7 @@ main.portfolio-page-content::before,
 
 .order-content > p {
     font-size: 24px;
-    color: #666;
+    color: #000;
     margin: 10px 0 40px 0;
     letter-spacing: normal;
 }
@@ -1612,7 +1612,7 @@ main.portfolio-page-content::before,
 .order-form-row > label {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: #000;
     align-self: center;
 }
 
@@ -1673,7 +1673,7 @@ main.portfolio-page-content::before,
     display: inline-block;
 }
 .btn-upload:hover {
-    background-color: #a52c6a;
+    background-color: #C93684;
 }
 input[type="file"] {
     display: none;
@@ -1685,7 +1685,7 @@ input[type="file"] {
 .order-form-row-full label {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: #000;
     display: block;
     margin-bottom: 10px;
 }
@@ -1737,7 +1737,7 @@ input[type="file"] {
 
 .form-reply-note {
     font-style: italic;
-    color: #666;
+    color: #000;
     margin-top: 15px;
     font-size: 16px;
 }
@@ -1922,8 +1922,8 @@ input[type="file"] {
     width: 100%;
     border-collapse: separate; 
     border-spacing: 0;
-    border: 4px solid #C93684; 
-    border-radius: 20px; 
+    border: 8px solid #C93684; 
+    border-radius: 10px; 
     background-color: #f7f7f7;
     overflow: hidden;
 }
@@ -1933,7 +1933,7 @@ input[type="file"] {
     background-color: #C93684;
     color: #f7f7f7;
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 400;
     padding: 20px;
     text-align: center;
     border-bottom: 4px solid #C93684;
@@ -1941,18 +1941,17 @@ input[type="file"] {
 
 .custom-dashboard-table th:not(:last-child),
 .custom-dashboard-table td:not(:last-child) {
-    border-right: 4px solid #C93684; 
+    border-right: 8px solid #C93684; 
 }
 
 /* Isi Tabel */
 .custom-dashboard-table tbody td {
-    padding: 30px 20px;
+    padding: 15px 10px;
     text-align: center;
     font-size: 22px;
     color: #000;
-    vertical-align: top;
+    vertical-align: middle;
     background-color: #f7f7f7;
-    height: 200px;
 }
 
 /* Status Badges */
@@ -1968,9 +1967,9 @@ input[type="file"] {
     color: #000;
 }
 
-.status-badge.pending { background-color: #DEDEDE; }
-.status-badge.progress { background-color: #CED2EF; }
-.status-badge.completed { background-color: #CEEFD6; }
+.status-select.pending { background-color: #DEDEDE; color: #000; border-color: #DEDEDE; }
+.status-select.in-progress { background-color: #CED2EF; color: #000; border-color: #CED2EF; }
+.status-select.completed { background-color: #CEEFD6; color: #000; border-color: #CEEFD6; }
 
 /* Tombol View */
 .btn-view {
@@ -1984,7 +1983,7 @@ input[type="file"] {
     font-weight: 500;
     transition: background 0.3s;
     width: 80%;
-    margin: 0 auto; /* Tengahkan tombol */
+    margin: 0 auto; 
 }
 
 .btn-view:hover {
@@ -1999,6 +1998,58 @@ input[type="file"] {
     color: #000;
     background: transparent;
 }
+
+/*edit*/
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tombol View (Update sedikit agar muat) */
+.btn-view {
+    background-color: #C93684;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    flex: 1; /* Biar lebar proporsional */
+}
+
+/* Tombol Delete (Merah) */
+.btn-delete {
+    background-color: #fb0000; /* Merah */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-delete:hover {
+    background-color: #cc0000;
+}
+
+/* Dropdown Status */
+.status-select {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    outline: none;
+}
+
 
 /* Responsive HP */
 @media (max-width: 768px) {
@@ -2027,4 +2078,117 @@ input[type="file"] {
     .dashboard-header-text p { font-size: 20px; }
 
     .status-badge, .btn-view { font-size: 14px; width: 90%; }
+}
+
+
+
+
+
+
+/**************************
+* ORDER DETAIL PAGE
+***************************/
+
+.detail-page-content {
+    padding: 40px 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Kartu Detail (Border Pink Tebal) */
+.order-detail-card {
+    background-color: #fff;
+    border: 5px solid #C93684; /* Pink Tebal */
+    border-radius: 25px;
+    padding: 50px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: "Poppins", sans-serif;
+    font-size: 20px; /* Font agak besar agar jelas */
+    color: #000;
+}
+
+/* Layout Baris (Label : Value) */
+.detail-row {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-start; /* Agar teks panjang rapi di atas */
+}
+
+.detail-row .label {
+    width: 220px; /* Lebar kolom kiri tetap */
+    font-weight: 500;
+    flex-shrink: 0; /* Jangan mengecil */
+}
+
+.detail-row .separator {
+    width: 30px;
+    text-align: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.detail-row .value {
+    flex: 1; /* Mengisi sisa ruang */
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Placeholder untuk Gambar */
+.img-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #eee;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+/* Tombol Back (Pink di Kiri Bawah) */
+.btn-back {
+    display: inline-block;
+    background-color: #C93684;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #a52c6a;
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+    .order-detail-card {
+        padding: 25px;
+        font-size: 16px;
+    }
+    
+    /* Di HP, label dan isi jadi tumpuk */
+    .detail-row {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    
+    .detail-row .label {
+        width: 100%;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    
+    .detail-row .separator {
+        display: none; /* Sembunyikan titik dua di HP */
+    }
 }
