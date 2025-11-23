@@ -982,7 +982,6 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
     line-height: 1.2;
     margin-top: 10px;
     margin-bottom: 0px;
-    margin-left: -450px;
     text-shadow: #000 2px 2px 4px;
 }
 .portfolio-header-content p {
@@ -993,7 +992,6 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
     font-weight: 600;
     padding: 5px;
     margin-top: 0px;
-    margin-left: -450px;
     background-color: #F7F7F7CC;
     margin-bottom: 3px;
     letter-spacing: normal;
@@ -1005,7 +1003,6 @@ Styling Bagian Kartu Harga (Lengkap dengan Grid Layout)
     font-style: italic;
     font-weight: 600;
     padding: 5px;
-    margin-left: -450px;
     background-color: #F7F7F7CC;
     letter-spacing: normal;
 }
@@ -1141,7 +1138,6 @@ main.portfolio-page-content::before,
   text-align: left;
   font-size: 96px;
   font-weight: 700;
-  margin-left: -300px;
   margin-top: 10px;
   margin-bottom: 0px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -1155,7 +1151,6 @@ main.portfolio-page-content::before,
   font-style: italic;
   font-weight: 500;
   margin-top: 5px;
-  margin-left: -300px;
   padding: 5px 10px 5px 10px;
   letter-spacing: normal;
   background-color: #F7F7F7CC;
@@ -1759,5 +1754,92 @@ input[type="file"] {
     }
     .btn-toggle-group {
         flex-wrap: wrap; /* Biar tombolnya bisa ke bawah kalo ga muat */
+    }
+}
+
+
+
+
+
+/*****************************
+* Thank You Page
+*****************************/
+
+.thankyou-body {
+    background-color: #FFF;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Header atas, Konten tengah, Footer bawah */
+    font-family: "Poppins", sans-serif;
+}
+
+/* Header Logo */
+.thankyou-header {
+    padding: 30px 50px;
+}
+
+/* Konten Tengah */
+.thankyou-content {
+    text-align: center;
+    padding: 20px;
+    margin-top: -50px; /* Sedikit naik ke atas agar visualnya pas di tengah */
+}
+
+.thankyou-content h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #000;
+}
+
+.thankyou-content p {
+    font-size: 40px;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.btn-thankyou {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #C93684;
+    color: #f7f7f7;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-size: 36px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-thankyou:hover {
+    background-color: #a52c6a;
+}
+
+/* Footer */
+.thankyou-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #000;
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+    .thankyou-header {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .thankyou-content h1 {
+        font-size: 40px;
+    }
+    .thankyou-content p {
+        font-size: 18px;
+    }
+    .btn-thankyou {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
