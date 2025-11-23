@@ -1843,3 +1843,166 @@ input[type="file"] {
         box-sizing: border-box;
     }
 }
+
+
+
+
+/*
+* =================================
+* ARTIST DASHBOARD (REVISI FINAL)
+* =================================
+*/
+
+.dashboard-body {
+    background-color: #F9F9F9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    margin: 0; /* Reset margin body */
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1100px; /* Sedikit dikecilkan agar lebih padat */
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Teks Header */
+.dashboard-header-text h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.dashboard-header-text p {
+    font-size: 28px; /* Ukuran disesuaikan */
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+/* --- Styling Tabel --- */
+.dashboard-table-wrapper {
+    overflow-x: auto;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Tengahkan tabel */
+}
+
+.custom-dashboard-table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    /* Border luar: Pink Tebal & Sudut Melengkung */
+    border: 4px solid #C93684; 
+    border-radius: 20px; 
+    background-color: #fff; /* Latar tabel putih */
+    overflow: hidden; /* Potong sudut */
+}
+
+/* Header Tabel (Pink) */
+.custom-dashboard-table thead th {
+    background-color: #C93684;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #C93684; /* Pemisah header dan body */
+}
+
+/* Garis Pemisah Kolom (Vertikal) */
+/* Kita beri garis di KANAN setiap sel, kecuali sel terakhir */
+.custom-dashboard-table th:not(:last-child),
+.custom-dashboard-table td:not(:last-child) {
+    border-right: 4px solid #C93684; 
+}
+
+/* Isi Tabel */
+.custom-dashboard-table tbody td {
+    padding: 30px 20px; /* Spasi dalam sel */
+    text-align: center;
+    font-size: 22px;
+    color: #000;
+    vertical-align: top; /* Konten mulai dari atas */
+    background-color: #F9F9F9; /* Warna isi sel */
+    height: 200px; /* TINGGI MINIMUM AGAR KOTAK TERLIHAT PANJANG KE BAWAH SEPERTI DESAIN */
+}
+
+/* Status Badges */
+.status-badge {
+    display: block;
+    width: 80%; /* Lebar badge */
+    margin: 0 auto 10px auto; /* Tengah & Jarak bawah */
+    padding: 8px 0;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: #000;
+}
+
+.status-badge.pending { background-color: #E0E0E0; }
+.status-badge.progress { background-color: #D6D6F5; }
+.status-badge.completed { background-color: #C9F0D4; }
+
+/* Tombol View */
+.btn-view {
+    display: block;
+    background-color: #C93684;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: background 0.3s;
+    width: 80%;
+    margin: 0 auto; /* Tengahkan tombol */
+}
+
+.btn-view:hover {
+    background-color: #a52c6a;
+}
+
+/* --- Footer Sederhana (Fix Masalah Footer Biru) --- */
+.simple-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+    color: #000;
+    background: transparent; /* Transparan, bukan biru */
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+    .dashboard-header-text h1 { font-size: 40px; }
+    .dashboard-header-text p { font-size: 18px; }
+    
+    .custom-dashboard-table thead th, 
+    .custom-dashboard-table tbody td {
+        font-size: 16px;
+        padding: 15px 10px;
+        height: auto; /* Reset tinggi di HP */
+    }
+    
+    .custom-dashboard-table {
+        border-width: 2px;
+    }
+    
+    .custom-dashboard-table th:not(:last-child),
+    .custom-dashboard-table td:not(:last-child) {
+        border-right-width: 2px;
+    }
+
+    .status-badge, .btn-view { font-size: 14px; width: 90%; }
+}
