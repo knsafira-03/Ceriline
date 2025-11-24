@@ -420,37 +420,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
     async function loadDashboardData(artistTable, customerTable) {
         try {
-            const response = await fetch(`${API_BASE_URL}/api/dashboard`, {
-                method: 'GET',
-                credentials: 'include'
-            });
+            // For artists: Use existing /api/dashboard
+            if (artistTable) {
+                const response = await fetch(`${API_BASE_URL}/api/dashboard`, {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    renderArtistTable(artistTable, data.orders || []);
+                } else {
+                    console.warn("Failed to load artist dashboard.");
+                }
+            }
             
-            if (response.ok) {
-                const data = await response.json();
-                const orders = data.orders || [];
-                
-                // Render untuk Artis (Semua Order)
-                if (artistTable) {
-                    renderArtistTable(artistTable, orders);
+            // For customers: Use new /api/customer-orders
+            if (customerTable) {
+                const response = await fetch(`${API_BASE_URL}/api/customer-orders`, {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    renderCustomerTable(customerTable, data.orders || []);
+                } else {
+                    console.warn("Failed to load customer orders.");
                 }
-                
-                // Render untuk Customer (Filter Order Sendiri)
-                if (customerTable) {
-                    const myUser = localStorage.getItem('ceriline_username');
-                    // Filter sederhana berdasarkan email/username yang tersimpan
-                    // (Sebaiknya filter ini dilakukan di backend untuk keamanan, tapi ini untuk demo)
-                    const myOrders = orders.filter(o => 
-                        (o.email && myUser && o.email.toLowerCase() === myUser.toLowerCase()) ||
-                        (o.customer_username && myUser && o.customer_username.toLowerCase() === myUser.toLowerCase())
-                    );
-                    renderCustomerTable(customerTable, myOrders);
-                }
-
-            } else {
-                console.warn("Gagal memuat dashboard.");
             }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error loading dashboard:", error);
         }
     }
 
