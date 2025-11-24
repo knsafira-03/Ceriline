@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Ceriline</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+    <nav>
+        <div class="wrapper">
+            <a href="index.html" class="logo-brand">
+                <img src="images/logo_ceriline.png" alt="Logo"> 
+                <span>Ceriline</span>
+            </a>
+
+            <div class="user-icon">
+                <a href="#"><i class="fa-solid fa-user" style="color: #C93684;"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-content">
+        <div class="dashboard-header-text">
+            <h1 id="welcome-message">Hi, Customer!</h1>
+            <p>Here are your orders status</p>
+        </div>
+
+        <div class="dashboard-table-wrapper">
+            <table class="custom-dashboard-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="customer-table-body">
+                    <tr>
+                        <td colspan="5" style="padding: 40px; color: #999;">Loading your orders...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <a href="#" class="btn-logout" style="color: #FF4D4D; font-weight: 600; text-decoration: none;">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="simple-footer">
+        <p>&copy; 2025 Ceriline. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
