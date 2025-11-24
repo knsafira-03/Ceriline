@@ -1,9 +1,3 @@
-/*
-* ============================================================
-* MAIN JAVASCRIPT - CERILINE (FINAL CONNECTED)
-* ============================================================
-*/
-
 document.addEventListener("DOMContentLoaded", function() {
 
     // --- 1. KONFIGURASI API ---
@@ -235,7 +229,17 @@ document.addEventListener("DOMContentLoaded", function() {
         calculatePrice();
     }
 
-    // --- 6. SUBMIT ORDER ---
+    // Utility function to convert a File object to a Base64 string
+    function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+    
+    // --- 6. SUBMIT ORDER (REVISED FOR JSON) ---
     const orderForm = document.querySelector('.commission-form');
     if (orderForm) {
         const user = localStorage.getItem('ceriline_username');
@@ -244,7 +248,6 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "login.html";
         } else {
             const emailField = document.getElementById('email');
-            // Jika username di localStorage adalah email, isi otomatis
             if(emailField && user.includes('@')) emailField.value = user;
         }
 
@@ -254,49 +257,144 @@ document.addEventListener("DOMContentLoaded", function() {
             submitBtn.innerText = "Sending...";
             submitBtn.disabled = true;
 
-            const formData = new FormData();
-            formData.append('name', document.getElementById('name').value);
-            formData.append('email', document.getElementById('email').value);
-            formData.append('instagram', document.getElementById('instagram').value);
-            formData.append('reference_link', document.getElementById('reference').value);
-            formData.append('description', document.getElementById('description').value);
-            formData.append('notes', document.getElementById('notes').value);
-            
-            const style = document.querySelector('input[name="style"]:checked');
-            if(style) formData.append('style', style.nextElementSibling.innerText);
-            
-            const bg = document.querySelector('input[name="background"]:checked');
-            if(bg) formData.append('background', bg.nextElementSibling.innerText);
-
-            formData.append('art_type', document.getElementById('art-type').value);
-            formData.append('commercial_use', document.getElementById('commercial-use').value);
-
             const fileInput = document.getElementById('upload-image');
+            let imageBase64 = null;
+
+            // 1. Convert file to Base64 for Cloudinary (if file is present)
             if (fileInput.files.length > 0) {
-                formData.append('image', fileInput.files[0]);
+                try {
+                    imageBase64 = await fileToBase64(fileInput.files[0]);
+                } catch (e) {
+                    alert('Gagal memproses file gambar.');
+                    submitBtn.innerText = "Submit Order";
+                    submitBtn.disabled = false;
+                    return;
+                }
             }
 
+            // 2. Collect ALL data into a JSON object (matching backend keys)
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                instagram: document.getElementById('instagram').value || null,
+                
+                // Get value from checked radio/select elements
+                style: document.querySelector('input[name="style"]:checked').value,
+                background: document.querySelector('input[name="background"]:checked').value,
+                art_type: document.getElementById('art-type').value,
+                commercial_use: document.getElementById('commercial-use').value,
+                
+                // Map keys to backend expected names
+                character_description: document.getElementById('description').value,
+                reference_link: document.getElementById('reference').value || null,
+                additional_notes: document.getElementById('notes').value || null,
+                
+                // Send Base64 string for image upload
+                image_reference: imageBase64,
+                
+                // NOTE: The backend will calculate 'estimated_price'
+            };
+            
+            // Ensure required fields are not empty (basic client-side check)
+            const requiredFields = ['name', 'email', 'style', 'background', 'art_type', 'character_description', 'commercial_use'];
+            const missing = requiredFields.filter(key => !payload[key]);
+            if (missing.length > 0) {
+                alert(`Missing required fields: ${missing.join(', ')}`);
+                submitBtn.innerText = "Submit Order";
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // 3. Send the request with the correct headers (Fixes 415 error)
             try {
                 const response = await fetch(`${API_BASE_URL}/api/order`, {
-                    method: 'POST', credentials: 'include', body: formData
+                    method: 'POST', 
+                    credentials: 'include',
+                    headers: { 
+                        'Content-Type': 'application/json' // <--- THE CRITICAL FIX
+                    },
+                    body: JSON.stringify(payload) // <--- Send JSON data
                 });
 
                 if (response.ok) {
                     const clientName = document.getElementById('name').value;
                     window.location.href = `thankyou.html?name=${encodeURIComponent(clientName)}`;
                 } else {
+                    // If response.ok is false (400, 403, 500)
                     const data = await response.json();
-                    alert('Gagal: ' + (data.error || data.message));
+                    alert('Gagal: ' + (data.error || data.message || `Server responded with status: ${response.status}`));
                     submitBtn.innerText = "Submit Order";
                     submitBtn.disabled = false;
                 }
             } catch (error) {
-                alert('Error koneksi.');
+                console.error('Network Error:', error);
+                alert('Error koneksi. Pastikan API server berjalan.');
                 submitBtn.innerText = "Submit Order";
                 submitBtn.disabled = false;
             }
         });
     }
+    // const orderForm = document.querySelector('.commission-form');
+    // if (orderForm) {
+    //     const user = localStorage.getItem('ceriline_username');
+    //     if (!user) {
+    //         alert("Silakan login terlebih dahulu untuk memesan.");
+    //         window.location.href = "login.html";
+    //     } else {
+    //         const emailField = document.getElementById('email');
+    //         // Jika username di localStorage adalah email, isi otomatis
+    //         if(emailField && user.includes('@')) emailField.value = user;
+    //     }
+
+    //     orderForm.addEventListener('submit', async (event) => {
+    //         event.preventDefault();
+    //         const submitBtn = orderForm.querySelector('button[type="submit"]');
+    //         submitBtn.innerText = "Sending...";
+    //         submitBtn.disabled = true;
+
+    //         const formData = new FormData();
+    //         formData.append('name', document.getElementById('name').value);
+    //         formData.append('email', document.getElementById('email').value);
+    //         formData.append('instagram', document.getElementById('instagram').value);
+    //         formData.append('reference_link', document.getElementById('reference').value);
+    //         formData.append('description', document.getElementById('description').value);
+    //         formData.append('notes', document.getElementById('notes').value);
+            
+    //         const style = document.querySelector('input[name="style"]:checked');
+    //         if(style) formData.append('style', style.nextElementSibling.innerText);
+            
+    //         const bg = document.querySelector('input[name="background"]:checked');
+    //         if(bg) formData.append('background', bg.nextElementSibling.innerText);
+
+    //         formData.append('art_type', document.getElementById('art-type').value);
+    //         formData.append('commercial_use', document.getElementById('commercial-use').value);
+
+    //         const fileInput = document.getElementById('upload-image');
+    //         if (fileInput.files.length > 0) {
+    //             formData.append('image', fileInput.files[0]);
+    //         }
+
+    //         try {
+    //             const response = await fetch(`${API_BASE_URL}/api/order`, {
+    //                 method: 'POST', credentials: 'include', body: formData
+    //             });
+
+    //             if (response.ok) {
+    //                 const clientName = document.getElementById('name').value;
+    //                 window.location.href = `thankyou.html?name=${encodeURIComponent(clientName)}`;
+    //             } else {
+    //                 const data = await response.json();
+    //                 alert('Gagal: ' + (data.error || data.message));
+    //                 submitBtn.innerText = "Submit Order";
+    //                 submitBtn.disabled = false;
+    //             }
+    //         } catch (error) {
+    //             alert('Error koneksi.');
+    //             submitBtn.innerText = "Submit Order";
+    //             submitBtn.disabled = false;
+    //         }
+    //     });
+    // }
 
     // --- 7. UPDATE NAMA DASHBOARD (FITUR BARU) ---
     const welcomeMsg = document.getElementById('welcome-message');

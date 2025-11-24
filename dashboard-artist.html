@@ -15,8 +15,6 @@
                 <img src="images/logo_ceriline.png" alt="Logo"> 
                 <span>Ceriline</span>
             </a>
-            <div class="menu">
-                </div>
             <div class="user-icon">
                 <a href="#"><i class="fa-solid fa-user" style="color: #C93684;"></i></a>
             </div>
@@ -30,22 +28,7 @@
         </div>
 
         <div class="dashboard-table-wrapper">
-            <div class="dashboard-table-wrapper">
-                <table class="custom-dashboard-table">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Client</th>
-                            <th>Status</th>
-                            <th>Deadline</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="orders-table-body">
-                        </tbody>
-                </table>
-            </div>
-            <!-- <table class="custom-dashboard-table">
+            <table class="custom-dashboard-table">
                 <thead>
                     <tr>
                         <th>Order ID</th>
@@ -55,22 +38,18 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="orders-table-body">
                     <tr>
-                        <td>#1</td>
-                        <td>Raras</td>
-                        <td>
-                            <div class="status-badge pending">Pending</div>
-                            <div class="status-badge progress">In Progress</div>
-                            <div class="status-badge completed">Completed</div>
-                        </td>
-                        <td>21/11/2025</td>
-                        <td>
-                            <a href="#" class="btn-view">View</a>
-                        </td>
+                        <td colspan="5" style="padding: 40px; color: #999;">Loading orders...</td>
                     </tr>
                 </tbody>
-            </table> -->
+            </table>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="#" class="btn-logout" style="color: #FF4D4D; font-weight: 600; text-decoration: none; font-size: 18px;">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
         </div>
     </main>
 
