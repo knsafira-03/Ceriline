@@ -312,9 +312,21 @@ document.addEventListener("DOMContentLoaded", function() {
         // A. ARTIST (Lihat Semua)
         if (artistTable) {
             if (orders.length === 0) {
-                artistTable.innerHTML = `<tr><td colspan="5" style="padding:40px;">No orders yet.</td></tr>`;
+                artistTable.innerHTML = `<tr><td colspan="6" style="padding:40px; color:#999;">No orders yet.</td></tr>`;
             } else {
-                artistTable.innerHTML = orders.map((order, index) => `
+                artistTable.innerHTML = orders.map((order, index) => {
+                    
+                    // KONVERSI TANGGAL: DD/MM/YYYY -> YYYY-MM-DD (Supaya bisa dibaca input type="date")
+                    let dateValue = "";
+                    if (order.deadline && order.deadline.includes('/')) {
+                        const parts = order.deadline.split('/');
+                        if(parts.length === 3) {
+                            // Ubah jadi YYYY-MM-DD
+                            dateValue = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                        }
+                    }
+
+                    return `
                     <tr>
                         <td>${order.id}</td>
                         <td>${order.client}</td>
@@ -326,13 +338,20 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <option value="Completed" ${order.status === 'Completed' ? 'selected' : ''}>Completed</option>
                             </select>
                         </td>
-                        <td>${order.deadline}</td>
                         <td>
-                             <button onclick="viewOrder(${index})" class="btn-view">View</button>
-                             <button onclick="deleteOrder(${index})" class="btn-delete" style="margin-top:5px; background:#ff4d4d; color:fff; padding:5px 10px; border-radius:5px; border:none; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                            <input type="date" 
+                                   class="date-input" 
+                                   value="${dateValue}" 
+                                   onchange="updateDeadline(${index}, this.value)">
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <button onclick="viewOrder(${index})" class="btn-view">View</button>
+                                <button onclick="deleteOrder(${index})" class="btn-delete" style="margin-left:5px; background:#ff4d4d; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                            </div>
                         </td>
                     </tr>
-                `).join('');
+                `}).join('');
             }
         }
 
@@ -444,5 +463,25 @@ document.addEventListener("DOMContentLoaded", function() {
         const name = urlParams.get('name');
         if(name) thankName.innerText = `Hi, ${name}!`;
     }
+
+    // Fungsi Update Deadline (Global)
+    window.updateDeadline = function(index, newDateYMD) {
+        const orders = JSON.parse(localStorage.getItem('ceriline_orders')) || [];
+        
+        if (orders[index]) {
+            // newDateYMD formatnya YYYY-MM-DD (dari input date)
+            // Kita ubah balik ke DD/MM/YYYY biar seragam
+            if(newDateYMD) {
+                const parts = newDateYMD.split('-'); // [YYYY, MM, DD]
+                const formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`; // DD/MM/YYYY
+                
+                orders[index].deadline = formattedDate;
+                localStorage.setItem('ceriline_orders', JSON.stringify(orders));
+                
+                // Optional: Kasih feedback visual (console log atau alert kecil)
+                console.log("Deadline updated to:", formattedDate);
+            }
+        }
+    };
 
 });

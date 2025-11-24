@@ -2050,6 +2050,26 @@ input[type="file"] {
     outline: none;
 }
 
+/* Input Tanggal di Dashboard */
+.date-input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 2px solid #eee;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    width: 140px; /* Lebar pas */
+    text-align: center;
+}
+
+.date-input:focus {
+    border-color: #C93684; /* Warna Pink saat diklik */
+}
+
 
 /* Responsive HP */
 @media (max-width: 768px) {
